@@ -32,7 +32,7 @@ module Sync
           attr_accessor :pool
           def initialize(db, opts = {})
             super
-            size = opts[:max_connection] || DEFAULT_SIZE
+            size = opts[:max_connections] || DEFAULT_SIZE
             @pool = ReConnectionPool.new(size: size) do
               make_new(DEFAULT_SERVER)
             end
