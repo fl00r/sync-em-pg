@@ -10,7 +10,8 @@ module Sync
         resp = yield
         resp.callback{ |r| f.resume(r) }
         resp.errback{ |r| f.resume(r) }
-        Fiber.yield
+        o = Fiber.yield
+        Exception === o ? raise(o) : o
       end
 
       def initialize(*args)

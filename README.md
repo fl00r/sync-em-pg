@@ -21,7 +21,7 @@ EM.synchrony do
     user: "postgres",
     password: "postgres"
     
-  res = db.send_qeury "select * from test"
+  res = db.send_query "select * from test"
 
   puts res.inspect
 
